@@ -1,0 +1,79 @@
+.navbarContainer{
+background-color: var(--page-background-color);
+display: flex;
+width: 100vw;
+height:80px ;
+justify-content: space-between;
+align-items: center;
+padding: 16px 32px;
+border-bottom: 1px inset var(--light-blue-color);
+
+}
+.companyLogoContainer{
+img{
+    width: 90px;
+
+}
+}
+
+.searchContainer{
+background-color: var(--search-input-background);
+border-radius: 10px;
+width: 25%;
+height: 42px;
+display: flex;
+align-items: center;
+padding: 4px 8px;
+gap: 5px;
+img{
+    margin-right: 5px;
+    width: 28px;
+    height: 28px;
+}
+input{
+    /* flex: 2; */
+    width: 100%;
+    background-color: transparent
+    ;
+    border: none;
+    color: var(--page-background-color);
+    outline: 0.1px var(--search-input-stroke);
+    font-size: 17px;
+    font-family: var(--sans-serif-family);
+    
+}
+input::placeholder{
+    color:var(--page-background-color);
+}
+}
+
+.navigationList{
+display: flex;
+gap: 32px;
+list-style-type: none;
+a{
+    text-decoration: none;
+    color:var(--blue-nav-link-color);
+    :active{
+        color:"red"
+    }
+}
+/* justify-content: c; */
+}
+.profileFigure{
+    /* width: 78px; */
+object-fit: cover;
+
+    /* background-color: red; */
+    
+    img{
+        width: 42px;
+        height: 40px;
+        border-radius: 50%;
+        
+       
+    }
+}
+/* .hamburgerIconContainer{
+
+} */

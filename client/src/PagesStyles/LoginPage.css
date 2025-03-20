@@ -1,0 +1,83 @@
+.Login-page-container {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting-and-back-btn {
+    display: flex;
+    gap: 50px;
+    margin: 26px 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+}
+
+.greeting-line {
+    color: #06D6A0;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.back-btn {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #073B4C;
+    color: white;
+    border: none;
+    border-radius: 17px;
+    font-size: 12px;
+}
+
+.login-section {
+    display: flex;
+    width: 80vw;
+    background-color: #06D6A0;
+    border-radius: 10px;
+    transition: all 0.7s ease-in-out; /* Smooth transition for all properties */
+    transform: translateX(0); /* Default position */
+    opacity: 1; /* Default opacity */
+}
+
+.login-section-register {
+    background-color: #118AB2;
+}
+
+/* Animation for sliding effect */
+.login-section {
+    animation: slideIn 0.7s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%); /* Start from right */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* End at original position */
+        opacity: 1;
+    }
+}
+
+/* Ensure the container handles the animation correctly */
+.Login-page-container {
+    overflow: hidden; /* Prevent content overflow during animation */
+}
+
+.login-section .right-side {
+    display: flex;
+    align-items: center;
+}
+
+.login-section .left-side {
+    /* width: 50%;
+    height: 700px; */
+}
+
+.login-section .left-side img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --page-background-color: #F8F9FA;
+    --blue-nav-link-color:#073B4C;
+    --light-blue-color:#118AB2;
+    --search-input-background:#06D6A0;
+    --search-input-stroke:#FFD166;
+    --sans-serif-family:sans-serif;
+}
+body{
+    font-family: var(--sans-serif-family);
+    background-color: #F8F9FA;
+}

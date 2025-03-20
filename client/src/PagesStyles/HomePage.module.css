@@ -1,0 +1,93 @@
+
+.HomePageContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+.HomePageContentSection{
+    width: 80%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  
+}
+.heroLineText{
+    /* background-color: #EF476F; */
+    width: 100%;
+    
+    text-align: center;
+    margin-bottom: 20px;
+    h1{
+        line-height: 64px;
+        font-size: 36px;
+        font-weight: 440;
+        font-family: var(--sans-serif-family);
+    }
+}
+.conversationSection{
+    background-color: #06D6A0;
+    display: flex;
+    gap: 60px;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    padding: 32px;
+    border-radius: 19px;
+}
+
+.leftSectionComplete{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    /* width: 65%; */
+
+    
+}
+.leftSection{
+    /* background-color: gainsboro; */
+    .featureHeading{
+line-height: 56px;
+color: white;
+font-weight: 700;
+
+    }
+.description{
+    font-size: 32px;
+    font-family: var(--sans-serif-family);
+    color:#FFFFFF;
+    line-height: 56px;
+}
+}
+.rightSectionFigure{
+    /* width: 420px;
+    height: 420px; */
+    /* background-color: green; */
+    /* width: 32%; */
+    img{
+        width:300px;
+        height: 300px;
+    }
+}
+.navigationButton{
+    background-color: #EF476F;
+    padding: 9px 16px ;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: var(--sans-serif-family);
+    transition: 0.1s ease;
+    width: 140px;
+    
+}
+.navigationButton:hover{
+    
+      transform: scale(1.04);
+    
+}
