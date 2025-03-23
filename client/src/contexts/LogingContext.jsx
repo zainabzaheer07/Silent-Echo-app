@@ -1,19 +1,19 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
+
 // Create a context for the login state
 const LoginContext = createContext();
 
-// Create a provider component
 export const LoginProvider = ({ children }) => {
     const [user, setUser] = useState(() => {
-        // Get the user from localStorage if it exists
         const savedUser = localStorage.getItem('user');
         return savedUser ? JSON.parse(savedUser) : null;
     });
 
+  
+
     useEffect(() => {
-        // Save the user to localStorage whenever it changes
         if (user) {
             localStorage.setItem('user', JSON.stringify(user));
         } else {
@@ -39,7 +39,7 @@ export const LoginProvider = ({ children }) => {
             const data = await response.json();
             setUser(data.user);
             localStorage.setItem('token', data.token);
-            return data; // Return data for downstream handling if needed
+            return data;
         } catch (error) {
             console.error('Email/Password Login failed:', error);
             throw error;
@@ -47,36 +47,35 @@ export const LoginProvider = ({ children }) => {
     };
 
     // Google Login
-// In LoginContext.js
-const googleLogin = async (idToken) => {
-    try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/google/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ idToken }),
-        });
+    const googleLogin = async (idToken) => {
+        try {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/google/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idToken }),
+            });
 
-        if (!response.ok) {
-            throw new Error('Google login failed');
+            if (!response.ok) {
+                throw new Error('Google login failed');
+            }
+
+            const data = await response.json();
+            setUser(data.user);
+            localStorage.setItem('token', data.token);
+            return data;
+        } catch (error) {
+            console.error('Google Login failed:', error);
+            throw error;
         }
-
-        const data = await response.json();
-        setUser(data.user);
-        localStorage.setItem('token', data.token);
-        return data;
-    } catch (error) {
-        console.error('Google Login failed:', error);
-        throw error;
-    }
-};
+    };
 
     // Logout
     const logout = () => {
-        setUser(null);
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
+        setUser(null); // Clear user state
+        localStorage.clear(); // Clear all local storage data
+      
     };
 
     return (

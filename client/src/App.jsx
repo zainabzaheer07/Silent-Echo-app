@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from './pages/HomePage';
-import Footer from './components/Footer/Footer';
+
 // import Login from './components/Login/Login';
 import LoginPage from './pages/LoginPage';
 import ConversationPage from './pages/ConversationPage';
@@ -37,7 +37,7 @@ function App() {
 
          {/*  */}
         </Routes>
-        <Footer />
+      
       </div>
     </Router>
   );

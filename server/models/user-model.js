@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-
     name: {
         type: String, 
         trim: true
@@ -19,11 +18,12 @@ const userSchema = new mongoose.Schema({
     loginMethods: {
         type: [String],
         default: []
-      },
-
-},
-
-{
+    },
+    image: {  // New field to store the Google profile image URL
+        type: String,
+        default: null
+    }
+}, {
     timestamps: true    
 });
 

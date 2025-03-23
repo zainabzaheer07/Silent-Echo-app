@@ -17,11 +17,11 @@ function LoginPage() {
     : 'login-section login-section-register';
 
   return (
-    <>
+    <div className='login-page-complete'>
       <div className="greeting-and-back-btn">
         <NavLink to="/">
-          <button className='back-btn'>
-            Back to home
+          <button className='back-btn-login'>
+            Back
           </button>
         </NavLink>
         <h3 className='greeting-line'>
@@ -38,7 +38,7 @@ function LoginPage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

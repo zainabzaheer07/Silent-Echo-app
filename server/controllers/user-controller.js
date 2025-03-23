@@ -157,6 +157,51 @@ exports.login = async (req, res) => {
 };
 
 // Google Login Controller
+// exports.googleLogin = async (req, res) => {
+//     const { idToken } = req.body;
+
+//     try {
+//         const ticket = await googleClient.verifyIdToken({
+//             idToken,
+//             audience: process.env.GOOGLEClientId,
+//         });
+//         const payload = ticket.getPayload();
+//         const email = payload.email;
+
+//         let user = await User.findOne({ email });
+//         if (!user) {
+//             user = new User({
+//                 name: payload.name,
+//                 email,
+//                 loginMethods: ['google']
+//             });
+//             await user.save();
+//         } else {
+//             if (!user.loginMethods.includes('google')) {
+//                 user.loginMethods.push('google');
+//                 await user.save();
+//             }
+//         }
+
+//         const token = jwt.sign(
+//             { user: { id: user.id } },
+//             process.env.JWT_SECRET,
+//             { expiresIn: '1h' }
+//         );
+
+//         res.json({
+//             token,
+//             user: {
+//                 id: user.id,
+//                 email: user.email,
+//                 username: user.name
+//             }
+//         });
+//     } catch (err) {
+//         console.error('Google Login Error:', err);
+//         res.status(401).json({ msg: 'Invalid token' });
+//     }
+// };
 exports.googleLogin = async (req, res) => {
     const { idToken } = req.body;
 
@@ -167,18 +212,25 @@ exports.googleLogin = async (req, res) => {
         });
         const payload = ticket.getPayload();
         const email = payload.email;
+        const profileImage = payload.picture; // Google profile picture URL
 
         let user = await User.findOne({ email });
         if (!user) {
             user = new User({
                 name: payload.name,
                 email,
+                image: profileImage, // Save the profile image URL
                 loginMethods: ['google']
             });
             await user.save();
         } else {
             if (!user.loginMethods.includes('google')) {
                 user.loginMethods.push('google');
+                await user.save();
+            }
+            // Optionally update the image if it’s not already set or has changed
+            if (!user.image || user.image !== profileImage) {
+                user.image = profileImage;
                 await user.save();
             }
         }
@@ -194,7 +246,8 @@ exports.googleLogin = async (req, res) => {
             user: {
                 id: user.id,
                 email: user.email,
-                username: user.name
+                username: user.name,
+                image: user.image // Include the image in the response
             }
         });
     } catch (err) {
@@ -202,5 +255,4 @@ exports.googleLogin = async (req, res) => {
         res.status(401).json({ msg: 'Invalid token' });
     }
 };
-
 module.exports = exports;

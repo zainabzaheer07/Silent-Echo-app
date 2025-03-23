@@ -3,8 +3,12 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import Camera from "../components/Camera/Camera";
 import axios from "axios";
 import "../PagesStyles/ConversationPage.css";
-
+import { useLogin } from "../contexts/LogingContext";
+import { NavLink } from "react-router-dom";
+import Footer from '../components/Footer/Footer';
 function ConversationPage() {
+
+  const {user}=useLogin();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("Translated text will be displayed here.");
@@ -32,12 +36,13 @@ function ConversationPage() {
   };
 
   return (
+    <>
     <div className="conversation-page-container">
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <div className="conversation-page-header">
         <figure className="conversation-hamburger-icon" onClick={() => setIsSidebarOpen(true)}>
-          <img src="./images/menu-icon.svg" alt="hamburger" />
+          <img src="./images/c-menu-icon.svg" alt="hamburger" />
         </figure>
         <div className="conversation-page-title">
           <h2>ASL to English, Real-Time Translation</h2>
@@ -61,13 +66,13 @@ function ConversationPage() {
           <Camera />
           <div className="translation-section">
             <p className="translated-text-para">{translatedText}</p>
-            <button className="clear-button" onClick={clearTranslation}>Clear</button>
+            <button className="clear-button text-trans" onClick={clearTranslation}>Clear</button>
           </div>
         </div>
       </section>
 
       <div className="save-conversation">
-        <button onClick={() => setShowModal(true)}>Save Conversation</button>
+        {user?<button onClick={() => setShowModal(true)}>Save Conversation</button>:<NavLink to="/login"><button>Login to save Conversation</button></NavLink>}
       </div>
 
       {showModal && (
@@ -93,7 +98,15 @@ function ConversationPage() {
           </div>
         </div>
       )}
+ 
     </div>
+
+ 
+    
+  <div >
+  <Footer/>
+  </div>
+    </>
   );
 }
 

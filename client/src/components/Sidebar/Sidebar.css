@@ -1,20 +1,25 @@
 .sidebar-container {
-    position: absolute;
-    top: 0;
-    right: -300px; 
-    width: 280px;
-    height: 100%;
-    background-color: #118AB2;
-    color: white;
-    transition: right 0.3s ease-in-out;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    z-index: 10;
+  position: absolute; /* Ensures it's always positioned properly */
+  /* top: calc(100vh - ); */
+  /* top: 0; */
+  right: -300px; /* Start off-screen */
+  width: 280px;
+  height: 100%;
+  background-color: #118AB2;
+  color: white;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden; /* Keep it hidden but not removed */
 
   }
   
   .sidebar-container.open {
-    right: 0; /* Slide in */
+    transform: translateX(-300px); /* Bring it into view */
+    opacity: 1;
+    visibility: visible;
   }
   
   .sidebar-header {

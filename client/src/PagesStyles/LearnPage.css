@@ -55,3 +55,23 @@ background-color: #F8F9FA;
     border: none;
 
 }
+
+
+@media screen and (max-width:560px) {
+    .learn-page-container{
+height: auto;
+padding-top: 16px;
+    }
+    .learn-page-sign-data-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .learn-page-image-container{
+        img{
+            width: 160px;
+        }
+    }
+    .learn-page-sign-button {
+        font-size: 10px;
+        padding: 5px 7px;
+    }
+}

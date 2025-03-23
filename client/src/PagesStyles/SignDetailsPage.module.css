@@ -1,0 +1,82 @@
+.signDetailsContainer {
+  /* padding: 20px; */
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 95vh;
+  position: relative;
+  /* background-color: green; */
+}
+
+
+/* Back button */
+.backBtn {
+  margin: 20px;
+  padding: 8px 15px;
+  background-color: #336699;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+}
+
+.backBtn:hover {
+  background-color: #264d73;
+}
+
+
+.signDetails {
+  /* background-color: red; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  
+}
+.signDetailsContent{
+  display: flex;
+}
+.signDescription{
+  background-color: #06d6a0;
+  padding: 15px 15px;
+  border-radius: 15px;
+  color: #073B4C;
+  height: 96%;
+  h2{
+    color: #073B4C;
+  }
+}
+
+@media screen and (max-width:520px) {
+
+  .signDetails{
+    width: 98%;
+    padding: 10px 5px;
+   
+
+  }
+  .signDetailsContent{
+    /* flex-direction: column; */
+    background-color: #06d6a0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .signImage{
+    width: 140px;
+    img{
+      width: 140px;
+    }
+  }
+}

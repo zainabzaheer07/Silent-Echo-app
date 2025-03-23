@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from "../PagesStyles/HomePage.module.css";
 import { NavLink } from 'react-router-dom';
+
+import Footer from '../components/Footer/Footer';
 function HomePage() {
   return (
+
+    <>
     <main className={styles.HomePageContainer} >
 <section className={styles.HomePageContentSection} >
 
@@ -77,6 +81,13 @@ Who are we and why did we chose such a project. Find out about us.
 </section>
 
     </main>
+
+    <div style={{marginTop:"15px"}}>
+  <Footer/>
+</div>
+    </>
+
+
   )
 }
 

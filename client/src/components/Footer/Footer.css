@@ -4,9 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    overflow-x: hidden;
-}
+
 .footer{
     background-color: #EF476F;
     color: white;
@@ -20,7 +18,7 @@ body{
     height: 133px;
     z-index: 10;
     padding: 10px 50px;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom:10px;
 
 }
@@ -58,4 +56,31 @@ body{
     width: 100px;
     height: 50px;
     /* margin-right: 16px; */
+}
+
+
+@media screen and (max-width: 480px) {
+   .footer{
+    padding: 10px  18px;
+   }
+/* Corrected selectors */
+.footer > *:nth-child(1) {
+    width: 40%;
+    margin-bottom: 15px;
+}
+
+.footer > *:nth-child(2) {
+    width: 22%;
+    margin-bottom: 15px;
+}
+
+.footer > *:nth-child(3) {
+    width: 38%; /* Adjusted to make total 100% (40 + 22 + 38) */
+}
+.footer-description{
+    font-size: 15px;
+}
+.footer-logo-img {
+width: 25px;
+}
 }

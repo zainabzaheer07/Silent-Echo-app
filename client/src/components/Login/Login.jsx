@@ -76,7 +76,7 @@ const Login = () => {
                         </div>
                         <button type="submit" className={styles["register-button"]}>Login</button>
                     </form>
-                    <div style={{ marginTop: '20px', textAlign: 'center' }} className={styles["login-with-google-btn"]}>
+                    <div style={{ marginTop: '20px'}} className={styles["login-with-google-btn"]}>
                         <GoogleLogin
                             onSuccess={handleGoogleLogin}
                             onError={(error) => {

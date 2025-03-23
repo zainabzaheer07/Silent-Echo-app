@@ -14,6 +14,9 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 // Serve static files from the "python-scripts" folder
+app.use(cors({
+  origin: '*'
+}));
 // app.use('/python-scripts', express.static(path.join(__dirname, 'python-scripts')));
 // python child process
  

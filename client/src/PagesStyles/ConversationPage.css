@@ -9,6 +9,7 @@ position: relative;
 /* margin: 16px 0; */
 padding-right:16px ;
 background-color: #073B4C;
+overflow-x:hidden ;
 }
 .conversation-page-header{
     width: 100%;
@@ -168,6 +169,7 @@ font-size: 30px;
     /* background-color: #EF476F; */
     display: flex;
     justify-content: center;
+    
     button{
         padding: 8px 24px;
         background-color: #118AB2;
@@ -175,6 +177,8 @@ font-size: 30px;
         border: none;
         color: white;
         font-size: 16px;
+        cursor: pointer;
+        
     }
 }
 .translated-text-para{
@@ -183,7 +187,7 @@ font-size: 30px;
     color: #118AB2;
     font-family: var(--sans-serif-family);
     /* width: 80%; */
-    text-align: center;
+    /* text-align: center; */
     padding: 15px 0px;
     /* margin: 0 auto; */
 }
@@ -246,4 +250,76 @@ font-size: 30px;
   .modal-buttons button:last-child {
     background: #EF476F;
     color: white;
+  }
+
+  @media screen and (max-width:520px) {
+    .conversation-section-right{
+        width: 55%;
+        background-color: #073B4C;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+    
+    }
+    .conversation-section-left{
+        width: 45%;
+        padding: 10px 5px;
+      
+    }
+    .conversation-page-container{
+     
+   
+        padding-right:0px ;
+       
+        }
+
+        .conversation-page-title{
+            h2{
+                font-size: 18px;
+            }
+
+        }
+        .conversation-hamburger-icon {
+        width: 30px;
+        height: 30px;
+        top: 23px;
+        img{
+            width: 23px;
+            height: 23px;
+        }
+        }
+        .clear-button {
+            padding: 5px 16px;
+            font-size: 14px;
+        }
+        .translation-section{
+            position: relative;
+        }
+.clear-button.text-trans{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+        .translated-text-para{
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 26px;
+        }
+        .conversation-text-input {
+            width: 100%;
+
+        }
+        .conversation-text-input{
+            font-size: 16px;
+            font-weight: 400;
+            padding: 10px 2px;
+
+        }
+        .conversation-text-input::placeholder{
+font-size: 16px;
+font-weight: 400;
+
+        }
   }
